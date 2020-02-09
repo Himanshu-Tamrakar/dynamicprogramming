@@ -11,7 +11,7 @@ public class Main {
                 {-1, -1, 0, 80},
                 {-1, -1, -1, 0}
         };
-        System.out.println(ChapterFour.costBetweenStation(arr));
+        System.out.println(ChapterFive.costBetweenStation(arr));
     }
 
 
