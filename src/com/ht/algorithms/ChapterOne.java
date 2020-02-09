@@ -1,4 +1,4 @@
-package com.ht.algorithms.chapter1;
+package com.ht.algorithms;
 
 public class ChapterOne {
     public static int[] sumPreviousIndex(int[] arr) {
