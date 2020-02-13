@@ -5,8 +5,13 @@ import netscape.security.UserTarget;
 public class Main {
 
     public static void main(String[] args) {
-
-        System.out.println(ChapterSIX.maxSubStringLengthDP("142124"));
+          int[][] cost = {
+                  {1,3,5,8},
+                  {4,2,1,7},
+                  {4,3,2,3}
+          };
+          System.out.println(ChapterEight.minPathCost3Way(cost));
+//        System.out.println(ChapterSIX.maxSubStringLengthDP("142124"));
 //        0123456
 //        int[][] arr = new int[][] {
 //                {0, 10, 75, 94},
