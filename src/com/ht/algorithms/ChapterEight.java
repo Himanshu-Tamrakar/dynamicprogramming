@@ -67,6 +67,8 @@ public class ChapterEight {
      * Given an empty plot of size 2 x n . We want to place tiles such that the entire plot is covered. Each tile is of size
      * 2 x 1 and can be placed either horizontally or vertically. If n is 5 , then one way to cover the plot
      * Write a function that accept n as input and return the total number of ways in which we can place the tiles (without breaking any tile).
+     *
+     * https://math.stackexchange.com/questions/664113/count-the-ways-to-fill-a-4-times-n-board-with-dominoes
      * @param n
      * @return
      */
