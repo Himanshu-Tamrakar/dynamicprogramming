@@ -24,7 +24,7 @@ public class Main {
 //            int[] a = new int[] {-2, -3, 4, -1, -2, 1, 5, -3};
 //            System.out.println(ChapterEight.maxSubArraySumDP(a));
 
-        System.out.println(ChapterNine.editDistanceDPMemImprovement("SUNDAY", "SATURDAY", 6,8));
+        System.out.println(ChapterNine.numberOfPathsDP(2, 3));
     }
 
 

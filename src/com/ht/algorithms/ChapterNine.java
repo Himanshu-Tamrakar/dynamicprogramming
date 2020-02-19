@@ -56,4 +56,37 @@ public class ChapterNine {
         return MEM[m%2][n];
     }
 
+    /**
+     * Given a two dimensional array, find total number of paths possible from top-left cell to bottom-right cell
+     * if we are allowed to move only rightward and downward. For example,
+     * if matrix is of order 2*2 , then only two paths are possible
+     * @param r
+     * @param c
+     * @return
+     */
+    public static int numberOfPaths(int r, int c) {
+        if(r == 0 && c == 0) return 0;
+        if(r == 0 || c == 0) return 1;
+
+        return numberOfPaths(r-1, c) + numberOfPaths(r, c-1);
+    }
+
+    public static int numberOfPathsDP(int r, int c) {
+        int[][] a = new int[r+1][c+1];
+
+        for (int i = 0; i <= c; i++) {
+            a[0][i] = 1;
+        }
+
+        for (int i = 0; i <= r; i++) {
+            a[i][0] = 1;
+        }
+
+        for (int i = 1; i <= r; i++) {
+            for (int j = 1; j <= c; j++) {
+                a[i][j] = a[i-1][j] + a[i][j-1];
+            }
+        }
+        return a[r][c];
+    }
 }
