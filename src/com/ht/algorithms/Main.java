@@ -24,8 +24,14 @@ public class Main {
 //            int[] a = new int[] {-2, -3, 4, -1, -2, 1, 5, -3};
 //            System.out.println(ChapterEight.maxSubArraySumDP(a));
 
-        System.out.println(ChapterNine.numberOfPathsDP(2, 3));
+//        System.out.println(ChapterNine.numberOfPathsDP(2, 3));
+        boolean[][] workInProgress = new boolean[][] {
+                {false, false},
+                {false, false}
+        };
+        System.out.println(ChapterNine.totalUniqueWays(2, 1, workInProgress));
     }
+
 
 
 

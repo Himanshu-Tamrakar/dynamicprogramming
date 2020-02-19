@@ -89,4 +89,31 @@ public class ChapterNine {
         }
         return a[r][c];
     }
+
+    /**
+     * Given a 2-dim grid where there is a horizontal and a vertical road after each kilo meter as shown in Picture 9.7.
+     * Dotted lines show the roads. You are at the origin (0,0) , and want to go to a point (x,y) .
+     * @return
+     */
+    public static int totalUniqueWays(int row, int col, boolean[][] workInProgress) {
+        if(row == 0 && col == 0) return 0;
+        if(row == 0 || col ==0) return 1;
+
+        return totalUniqueWays(row-1, col, workInProgress) + totalUniqueWays(row, col-1, workInProgress);
+    }
+
+    /**
+     * Given a 2-dim grid where there is a horizontal and a vertical road after each kilo meter as shown in Picture 9.7.
+     * Dotted lines show the roads. You are at the origin (0,0) , and want to go to a point (x,y) .
+     *
+     * Include diagonal path too
+     * @return
+     */
+    public static int totalUniqueWays(int row, int col) {
+        if(row == 0 && col == 0) return 0;
+        if(row == 0 || col == 0) return 1;
+        if(row == 1 && col == 1) return 3;
+
+        return totalUniqueWays(row-1, col) + totalUniqueWays(row, col-1) + totalUniqueWays(row-1, col-1);
+    }
 }
