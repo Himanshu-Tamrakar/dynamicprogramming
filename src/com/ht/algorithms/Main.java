@@ -21,8 +21,10 @@ public class Main {
 //        };
 //        System.out.println(ChapterSIX.costBetweenStation(arr));
 //        System.out.println(ChapterEight.waysToScoreDPUnique(13));
-            int[] a = new int[] {-2, -3, 4, -1, -2, 1, 5, -3};
-            System.out.println(ChapterEight.maxSubArraySumDP(a));
+//            int[] a = new int[] {-2, -3, 4, -1, -2, 1, 5, -3};
+//            System.out.println(ChapterEight.maxSubArraySumDP(a));
+
+        System.out.println(ChapterNine.editDistanceDPMemImprovement("SUNDAY", "SATURDAY", 6,8));
     }
 
 
