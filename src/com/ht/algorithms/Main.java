@@ -33,7 +33,8 @@ public class Main {
 
 //        System.out.println(ChapterNine.minMoves(3, 4,3,6));
 //          System.out.println(ChapterNine.checkInterleave("bcc", "bbca", "bbcbcac", 0,0,0));
-        System.out.println(ChapterNine.isSubsetDP(new int[] {6,2,7,1}, 4, 4));
+        System.out.println(ChapterNine.lcsDP("AAACCGTGAGTTATTCGTTCTAGAA", "CACCCCTAAGGTACCTTTGGTTC", "AAACCGTGAGTTATTCGTTCTAGAA".length(), "CACCCCTAAGGTACCTTTGGTTC".length()));
+//        System.out.println(ChapterNine.lcsDP("ABCD", "AEBD", 4, 4));
     }
 
 

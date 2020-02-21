@@ -188,4 +188,70 @@ public class ChapterNine {
         }
         return MAT[n-1][x];
     }
+
+    public static int longestCommonSubsequence(String s1, String s2, int m, int n) {
+//        if(m == 0 || n == 0) return 0;
+//        if(s1.charAt(m-1) == s2.charAt(n-1)) return 1 + longestCommonSubsequence(s1, s2, m-1, n-1);
+//        else return Math.max(longestCommonSubsequence(s1, s2, m, n-1), longestCommonSubsequence(s1,s2, m-1, n));
+
+            int[][] mem = new int[m+1][n+1];
+            for (int i = 0; i <= m; i++) {
+                for (int j = 0; j <= n; j++) {
+                    mem[i][j] = -1;
+                }
+            }
+
+            return lcs(s1,s2,mem,m, n);
+    }
+
+    public static int lcs(String s1, String s2, int[][] MEM, int m, int n) {
+        if(m == 0 || n == 0) return 0;
+
+        if(MEM[m][n] != -1) {
+            return MEM[m][n];
+        }
+
+        if(s1.charAt(m-1) == s2.charAt(n-1)) MEM[m][n] = 1 + lcs(s1, s2, MEM, m-1, n-1);
+        else MEM[m][n] = Math.max(lcs(s1,s2,MEM, m, n-1), lcs(s1,s2, MEM, m-1, n));
+
+        return MEM[m][n];
+    }
+
+    public static int lcsDP(String s1, String s2, int m ,int n) {
+        if( m == 0 || n == 0) return 0;
+
+        int[][] lscCount = new int[m+1][n+1];
+        // 000
+        // 0
+        // 0
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if(s1.charAt(i-1) == s2.charAt(j-1)) lscCount[i][j] = 1 + lscCount[i-1][j-1];
+                else lscCount[i][j] = Math.max(lscCount[i][j-1], lscCount[i-1][j]);
+            }
+        }
+
+        printlcsDP(lscCount, s1, s2, s1.length(), s2.length());
+        System.out.println();
+        return lscCount[m][n];
+    }
+
+    private static void printlcsDP(int[][] lcsCount, String s1, String s2,  int m, int n) {
+        int i = m;
+        int j = n;
+
+        while( i > 0 && j > 0) {
+            if(s1. charAt(i-1) == s2.charAt(j-1))  {
+                System.out.print(s1.charAt(i-1) );
+                i--;
+                j--;
+            } else {
+                if(lcsCount[i-1][j] > lcsCount[i][j-1]) {
+                    i--;
+                } else {
+                    j--;
+                }
+            }
+        }
+    }
 }
