@@ -116,4 +116,76 @@ public class ChapterNine {
 
         return totalUniqueWays(row-1, col) + totalUniqueWays(row, col-1) + totalUniqueWays(row-1, col-1);
     }
+
+
+    /**
+     * This method is incplete only covers for king move in chess
+     * @param sr
+     * @param sc
+     * @param dr
+     * @param dc
+     * @return
+     */
+    public static int minMoves(int sr, int sc, int dr, int dc) {
+        if(sr == dr && sc == dc) return 0;
+        if(sr < 0 || sc < 0 || sr > 7 || sc > 7) return 0;
+        if(dr > sr) {
+            return 1 + min(minMoves(sr+1, sc-1, dr, dc), minMoves(sr+1, sc, dr, dc), minMoves(sr+1, sc+1, dr,dc));
+        } else if(dr < sr) {
+            return 1 + min(minMoves(sr-1, sc-1, dr, dc), minMoves(sr-1, sc, dr, dc), minMoves(sr-1, sc+1, dr, dc));
+        } else {
+            if(sc > dc) return 1 + minMoves(sr, sc-1, dr, dc);
+            else return 1 + minMoves(sr, sc+1, dr, dc);
+        }
+    }
+
+    /*------------------------------------------------------------------------------------------------------------------------------*/
+
+    /**
+     * String C is said to be interleaving of string A and B if it contains all the characters of A and B and
+     * the relative order of characters of both the strings is preserved in C .
+     * For example, if values of A , B and C are as given below.
+     * @param a
+     * @param b
+     * @param c
+     * @return
+     */
+    public static boolean checkInterleave(String a, String b, String c, int l1, int l2, int l3) {
+        if(c.length()-l3 != ((a.length()-l1) + (b.length()-l2))) return false;
+        if(l1 == a.length() && l2 == b.length() && l3 == c.length()) return true;
+
+        boolean resultA = false;
+        boolean resultB = false;
+        if(l1 < a.length() && a.charAt(l1) == c.charAt(l3)) resultA =  checkInterleave(a,b,c, l1+1, l2, l3+1);
+        if(l2 < b.length() && b.charAt(l2) == c.charAt(l3)) resultB =  checkInterleave(a,b,c,l1,l2+1, l3+1);
+        return resultA || resultB;
+    }
+
+
+    public static boolean isSubset(int[] arr, int i, int x) {
+        if(x==0) return true;
+        if(i == arr.length) return false;
+
+        if(arr[i] > x) return isSubset(arr, i+1, x);
+
+        return isSubset(arr, i+1, x) || isSubset(arr, i+1, x-arr[i]);
+    }
+
+    public static boolean isSubsetDP(int[] arr, int n, int x) {
+        boolean[][] MAT = new boolean[n][x+1];
+
+        for (int i = 0; i < n; i++) {
+            MAT[i][0] = true;
+        }
+
+        if(arr[0] <= x) MAT[0][arr[0]] = true;
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j <= x; j++) {
+                if(arr[i] == j || MAT[i-1][j]) MAT[i][j] = true;
+                else if(j > arr[i] && MAT[i-1][j-arr[i]]) MAT[i][j] = true; //tricky one means go and check one above row with currrent col-arr[i]
+            }
+        }
+        return MAT[n-1][x];
+    }
 }

@@ -25,12 +25,17 @@ public class Main {
 //            System.out.println(ChapterEight.maxSubArraySumDP(a));
 
 //        System.out.println(ChapterNine.numberOfPathsDP(2, 3));
-        boolean[][] workInProgress = new boolean[][] {
-                {false, false},
-                {false, false}
-        };
-        System.out.println(ChapterNine.totalUniqueWays(2, 1, workInProgress));
+//        boolean[][] workInProgress = new boolean[][] {
+//                {false, false},
+//                {false, false}
+//        };
+//        System.out.println(ChapterNine.totalUniqueWays(2, 1, workInProgress));
+
+//        System.out.println(ChapterNine.minMoves(3, 4,3,6));
+//          System.out.println(ChapterNine.checkInterleave("bcc", "bbca", "bbcbcac", 0,0,0));
+        System.out.println(ChapterNine.isSubsetDP(new int[] {6,2,7,1}, 4, 4));
     }
+
 
 
 
